@@ -37,4 +37,9 @@ public class RSocketBrokerContainer extends GenericContainer<RSocketBrokerContai
         Integer webExposedPort = getMappedPort(9998);
         return "http://localhost:" + webExposedPort;
     }
+
+    public String getActuatorUri() {
+        Integer managementExposedPort = getMappedPort(9997);
+        return "http://localhost:" + managementExposedPort;
+    }
 }
