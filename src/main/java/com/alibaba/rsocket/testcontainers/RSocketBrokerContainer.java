@@ -48,7 +48,7 @@ public class RSocketBrokerContainer extends GenericContainer<RSocketBrokerContai
      */
     public String getRSocketBrokerUri() {
         Integer rsocketMappedPort = getMappedPort(9999);
-        return "tcp://localhost:" + rsocketMappedPort;
+        return "tcp://" + getContainerIpAddress() + ":" + rsocketMappedPort;
     }
 
     /**
@@ -58,7 +58,7 @@ public class RSocketBrokerContainer extends GenericContainer<RSocketBrokerContai
      */
     public String getWebConsoleURL() {
         Integer webExposedPort = getMappedPort(9998);
-        return "http://localhost:" + webExposedPort;
+        return "http://" + getContainerIpAddress() + ":" + webExposedPort;
     }
 
     /**
@@ -68,6 +68,6 @@ public class RSocketBrokerContainer extends GenericContainer<RSocketBrokerContai
      */
     public String getActuatorURL() {
         Integer managementExposedPort = getMappedPort(9997);
-        return "http://localhost:" + managementExposedPort;
+        return "http://" + getContainerIpAddress() + ":" + managementExposedPort;
     }
 }
