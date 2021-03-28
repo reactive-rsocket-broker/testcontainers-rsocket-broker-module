@@ -33,6 +33,7 @@ public class RSocketBrokerContainerTest {
 }
 ```
 
+* If your app is Spring Boot, and you can check [Embedded RSocket Broker](https://github.com/alibaba-rsocket-broker/embedded-rsocket-broker)
 
 # References
 
