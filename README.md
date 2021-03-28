@@ -9,7 +9,7 @@ Alibaba RSocket Broker Testcontainers module
 <dependency>
     <groupId>com.alibaba.rsocket</groupId>
     <artifactId>testcontainers-rsocket-broker-module</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
