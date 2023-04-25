@@ -34,6 +34,7 @@ public class RSocketBrokerContainer extends GenericContainer<RSocketBrokerContai
      *
      * @param dockerImageName DockerImageName object
      */
+    @SuppressWarnings("resource")
     public RSocketBrokerContainer(final DockerImageName dockerImageName) {
         super(dockerImageName);
         dockerImageName.assertCompatibleWith(DEFAULT_IMAGE_NAME);
@@ -48,7 +49,7 @@ public class RSocketBrokerContainer extends GenericContainer<RSocketBrokerContai
      */
     public String getRSocketBrokerUri() {
         Integer rsocketMappedPort = getMappedPort(9999);
-        return "tcp://" + getContainerIpAddress() + ":" + rsocketMappedPort;
+        return "tcp://" + getHost() + ":" + rsocketMappedPort;
     }
 
     /**
@@ -58,7 +59,7 @@ public class RSocketBrokerContainer extends GenericContainer<RSocketBrokerContai
      */
     public String getWebConsoleURL() {
         Integer webExposedPort = getMappedPort(9998);
-        return "http://" + getContainerIpAddress() + ":" + webExposedPort;
+        return "http://" + getHost() + ":" + webExposedPort;
     }
 
     /**
@@ -68,6 +69,6 @@ public class RSocketBrokerContainer extends GenericContainer<RSocketBrokerContai
      */
     public String getActuatorURL() {
         Integer managementExposedPort = getMappedPort(9997);
-        return "http://" + getContainerIpAddress() + ":" + managementExposedPort;
+        return "http://" + getHost() + ":" + managementExposedPort;
     }
 }
